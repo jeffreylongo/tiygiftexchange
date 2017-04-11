@@ -47,9 +47,11 @@ namespace tiygiftexchange.Controllers
         }
 
         //edit gift
+        [HttpPost]
         public ActionResult Edit(Gift gift)
         {
-            return View();
+            new GiftServices().EditGift(gift);
+            return RedirectToAction("Index");
         }
     }
     
