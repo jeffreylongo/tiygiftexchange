@@ -26,5 +26,15 @@ namespace tiygiftexchange.Services
                 return rv;
             }
         }
+        
+        public void AddGift(Gift newGift)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = "INSERT INTO GiftTable ([Contents], [GiftHint], [ColorWrappingPaper], " +
+                    "[Height], [Width], [Depth], [Weight], [IsOpened]) " +
+                    "VALUES(@Contents, @GiftHint, @ColorWrappingPaper, @Height, @Width, @Depth, @Weight, @IsOpened)";
+            }
+        }
     }
 }
