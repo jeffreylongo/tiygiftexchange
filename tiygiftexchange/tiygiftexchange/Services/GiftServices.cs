@@ -9,6 +9,7 @@ namespace tiygiftexchange.Services
 {
     public class GiftServices
     {
+        //get all gifts method
         const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=GiftExchange;Trusted_Connection=True;";
         public List<Gift> GetAllGifts()
         {
@@ -26,7 +27,7 @@ namespace tiygiftexchange.Services
                 return rv;
             }
         }
-        
+        //add new gift method
         public void AddGift(Gift newGift)
         {
             using (var connection = new SqlConnection(ConnectionString))
@@ -45,6 +46,35 @@ namespace tiygiftexchange.Services
                 cmd.Parameters.AddWithValue("@Weight", newGift.Weight);
                 cmd.Parameters.AddWithValue("@IsOpened", newGift.IsOpened);
                 cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        //edit gift method
+        public void EditGift(Gift gift)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = @"UPDATE GiftTable SET
+                [Contents] = @Contents
+                ,[GiftHint] = @GiftHint
+                ,[ColorWrappingPaper] = @ColorWrappingPaper
+                ,[Height] = @Height
+                ,[Width] = @Width
+                ,[Depth] = @Depth
+                ,[Weight] = @Weight
+                ,[IsOpened] = @IsOpened
+                WHERE Id = @Id";
+                var cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Contents", gift.Contents);
+                cmd.Parameters.AddWithValue("@GiftHint", gift.GiftHint);
+                cmd.Parameters.AddWithValue("@ColorWrappingPaper", gift.ColorWrappingPaper);
+                cmd.Parameters.AddWithValue("@Height", gift.Height);
+                cmd.Parameters.AddWithValue("@Width", gift.Width);
+                cmd.Parameters.AddWithValue("@Depth", gift.Depth);
+                cmd.Parameters.AddWithValue("@Weight", gift.Weight);
+                cmd.Parameters.AddWithValue("@IsOpened", gift.IsOpened);
+                var reader = cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }

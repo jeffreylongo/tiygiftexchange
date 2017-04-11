@@ -18,13 +18,14 @@ namespace tiygiftexchange.Controllers
             //pass them to the view
             return View(gifts);
         } 
+        //this is my get for my putpost. 
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-
+        //create new gift
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -42,8 +43,13 @@ namespace tiygiftexchange.Controllers
             };
             // TODO: Put into db
             new GiftServices().AddGift(newGift);
-
             return RedirectToAction("Index");
+        }
+
+        //edit gift
+        public ActionResult Edit(Gift gift)
+        {
+            return View();
         }
     }
     
