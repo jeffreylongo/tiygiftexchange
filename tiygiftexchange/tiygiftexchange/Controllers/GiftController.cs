@@ -16,6 +16,12 @@ namespace tiygiftexchange.Controllers
             var gifts = new GiftServices().GetAllGifts();
             //pass them to the view
             return View(gifts);
+        } 
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            //return View();
         }
     }
     
