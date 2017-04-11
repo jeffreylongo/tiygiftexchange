@@ -10,12 +10,12 @@ namespace tiygiftexchange.Services
     public class GiftServices
     {
         const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=GiftExchange;Trusted_Connection=True;";
-        public List<Gift> GetAllPlayers()
+        public List<Gift> GetAllGifts()
         {
             var rv = new List<Gift>();
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var query = "SELECT * FROM Players";
+                var query = "SELECT * FROM GiftTable";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 var reader = cmd.ExecuteReader();
