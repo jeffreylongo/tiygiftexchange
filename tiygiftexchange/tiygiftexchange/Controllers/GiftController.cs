@@ -18,6 +18,12 @@ namespace tiygiftexchange.Controllers
             //pass them to the view
             return View(gifts);
         } 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -27,11 +33,11 @@ namespace tiygiftexchange.Controllers
                 Contents = collection["Contents"],
                 GiftHint = collection["GiftHint"],
                 ColorWrappingPaper = collection["ColorWrappingPaper"],
-                Height = (object)collection["Height"] as int?,
-                Width = (object)collection["Width"] as int?,
-                Depth = (object)collection["Depth"] as int?,
-                Weight = (object)collection["Weight"] as int?,
-                IsOpened = (object)collection["IsOpened"] as bool?
+                Height = int.Parse(collection["Height"]),
+                Width = int.Parse(collection["Width"]),
+                Depth = int.Parse(collection["Depth"]),
+                Weight = int.Parse(collection["Weight"]),
+                IsOpened = bool.Parse(collection["IsOpened"])
 
             };
             // TODO: Put into db
