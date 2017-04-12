@@ -92,6 +92,22 @@ namespace tiygiftexchange.Controllers
             new GiftServices().DeleteGift(id);
             return RedirectToAction("Index");
         }
+
+        //get the gift to open
+        [HttpGet]
+        public ActionResult Open(int id)
+        {
+            var gift = GiftServices.GetGift(id);
+            return View(gift);
+        }
+
+        //post for open gift
+        [HttpPost]
+        public ActionResult Open(int id, FormCollection collection)
+        {
+            GiftServices.OpenGift(id);
+            return RedirectToAction("Index");
+        }
     }
     
 }
