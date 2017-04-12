@@ -27,6 +27,27 @@ namespace tiygiftexchange.Services
                 return rv;
             }
         }
+
+        //get gift
+        public Gift GetGift(int id)
+        {
+            var gift = new Gift();
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = "SELECT * FROM GiftTable WHERE ID = @id";
+                var cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    gift = new Gift(reader);
+                }
+                connection.Close();
+            }
+            return gift;
+        }
+
         //add new gift method
         public void AddGift(Gift newGift)
         {
@@ -50,7 +71,7 @@ namespace tiygiftexchange.Services
             }
         }
         //edit gift method
-        public void EditGift(Gift gift)
+        public void EditGift(Gift gift, int id)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
@@ -66,6 +87,7 @@ namespace tiygiftexchange.Services
                 WHERE Id = @Id";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
+                cmd.Parameters.AddWithValue("@Id", gift.Id);
                 cmd.Parameters.AddWithValue("@Contents", gift.Contents);
                 cmd.Parameters.AddWithValue("@GiftHint", gift.GiftHint);
                 cmd.Parameters.AddWithValue("@ColorWrappingPaper", gift.ColorWrappingPaper);
@@ -78,6 +100,8 @@ namespace tiygiftexchange.Services
                 connection.Close();
             }
         }
+
+
         //delete gift method
         public void DeleteGift(int id)
         {

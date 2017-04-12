@@ -46,13 +46,42 @@ namespace tiygiftexchange.Controllers
             return RedirectToAction("Index");
         }
 
+        //get gift for edit. 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var gift = new GiftServices().GetGift(id);
+            return View(gift);
+        }
+
         //edit gift
         [HttpPost]
-        public ActionResult Edit(int id, Gift gift)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            // TODO: fix this, its all wrong.
-            new GiftServices().EditGift(gift);
-            return RedirectToAction("Edit");
+            var updatedGift = new Gift
+            {
+                Contents = collection["Contents"],
+                GiftHint = collection["GiftHint"],
+                ColorWrappingPaper = collection["ColorWrappingPaper"],
+                Height = int.Parse(collection["Height"]),
+                Width = int.Parse(collection["Width"]),
+                Depth = int.Parse(collection["Depth"]),
+                Weight = int.Parse(collection["Weight"]),
+                IsOpened = bool.Parse(collection["IsOpened"]),
+                Id = id
+            };
+            //save to database
+            //display correct page. 
+            new GiftServices().EditGift(updatedGift, id);
+            return RedirectToAction("Index");
+        }
+
+        //get gift for delete. 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var gift = new GiftServices().GetGift(id);
+            return View(gift);
         }
 
         //delete gift
