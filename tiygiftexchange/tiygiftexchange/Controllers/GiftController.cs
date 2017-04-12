@@ -50,6 +50,7 @@ namespace tiygiftexchange.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Gift gift)
         {
+            // TODO: fix this, its all wrong.
             new GiftServices().EditGift(gift);
             return RedirectToAction("Edit");
         }
@@ -58,6 +59,7 @@ namespace tiygiftexchange.Controllers
         [HttpPost]
         public ActionResult DeleteGift(int id)
         {
+            // TODO: fix this
             new GiftServices().DeleteGift(id);
             return RedirectToAction("Index");
         }

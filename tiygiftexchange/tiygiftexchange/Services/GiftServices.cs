@@ -74,7 +74,7 @@ namespace tiygiftexchange.Services
                 cmd.Parameters.AddWithValue("@Depth", gift.Depth);
                 cmd.Parameters.AddWithValue("@Weight", gift.Weight);
                 cmd.Parameters.AddWithValue("@IsOpened", gift.IsOpened);
-                var reader = cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }
