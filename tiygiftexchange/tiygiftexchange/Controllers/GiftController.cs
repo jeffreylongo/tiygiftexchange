@@ -97,7 +97,7 @@ namespace tiygiftexchange.Controllers
         [HttpGet]
         public ActionResult Open(int id)
         {
-            var gift = GiftServices.GetGift(id);
+            var gift = new GiftServices().GetGift(id);
             return View(gift);
         }
 
@@ -105,7 +105,7 @@ namespace tiygiftexchange.Controllers
         [HttpPost]
         public ActionResult Open(int id, FormCollection collection)
         {
-            GiftServices.OpenGift(id);
+            new GiftServices().OpenGift(id);
             return RedirectToAction("Index");
         }
     }
