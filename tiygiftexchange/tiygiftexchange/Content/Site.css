@@ -22,3 +22,30 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.Home-h1 {
+    font-weight: bold;
+    color: purple;
+}
+
+.Home-p {
+    color: purple;
+}
+
+.jumbotron {
+    background-color: mediumpurple;
+}
+
+.jumbotron h1 {
+    color: lightgrey;
+    text-shadow: 2px 2px #000000;
+}
+
+.jumbotron p {
+    color: lightgrey;
+    text-shadow: 1px 1px #000000;
+}
+
+.navbar-header {
+    text-shadow: 1px 1px #ffffff;
+}
