@@ -86,7 +86,7 @@ namespace tiygiftexchange.Controllers
 
         //delete gift
         [HttpPost]
-        public ActionResult DeleteGift(int id)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             // TODO: fix this
             new GiftServices().DeleteGift(id);
