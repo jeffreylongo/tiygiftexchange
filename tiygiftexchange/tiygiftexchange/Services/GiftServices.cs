@@ -117,6 +117,18 @@ namespace tiygiftexchange.Services
 
 
         }
+        //open gift method
+        public void OpenGift(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var cmd = new SqlCommand("UPDATE GiftTable WHERE ID=@Id", connection);
+                cmd.Parameters.AddWithValue("@IsOpened", true);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
 
+        }
     }
 }
