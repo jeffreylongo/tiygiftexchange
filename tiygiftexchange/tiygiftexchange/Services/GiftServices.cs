@@ -101,7 +101,6 @@ namespace tiygiftexchange.Services
             }
         }
 
-
         //delete gift method
         public void DeleteGift(int id)
         {
@@ -121,8 +120,9 @@ namespace tiygiftexchange.Services
             using (var connection = new SqlConnection(ConnectionString))
             {
                 var cmd = new SqlCommand(@"UPDATE GiftTable SET
-                [Id] = @id WHERE Id = @Id", connection);
+                [IsOpened] = @IsOpened WHERE Id = @Id", connection);
                 cmd.Parameters.AddWithValue("@IsOpened", true);
+                cmd.Parameters.AddWithValue("@Id", id);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
