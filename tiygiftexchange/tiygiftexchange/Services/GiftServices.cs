@@ -114,7 +114,7 @@ namespace tiygiftexchange.Services
 
             }
         }
-        //open gift method
+        //open gift method.
         public void OpenGift(int id)
         {
             using (var connection = new SqlConnection(ConnectionString))
