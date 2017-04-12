@@ -120,7 +120,8 @@ namespace tiygiftexchange.Services
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var cmd = new SqlCommand("UPDATE GiftTable (IsOpened = @IsOpened) WHERE @Id = Id", connection);
+                var cmd = new SqlCommand(@"UPDATE GiftTable SET
+                [Id] = @id WHERE Id = @Id", connection);
                 cmd.Parameters.AddWithValue("@IsOpened", true);
                 connection.Open();
                 cmd.ExecuteNonQuery();
