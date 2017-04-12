@@ -50,17 +50,16 @@ namespace tiygiftexchange.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Gift gift)
         {
-            var editedGift = gift.Id;
             new GiftServices().EditGift(gift);
             return RedirectToAction("Edit");
         }
 
         //delete gift
         [HttpPost]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteGift(int id)
         {
-            // TODO: build this
-            return View("Index");
+            new GiftServices().DeleteGift(id);
+            return RedirectToAction("Index");
         }
     }
     

@@ -78,5 +78,21 @@ namespace tiygiftexchange.Services
                 connection.Close();
             }
         }
+        //delete gift method
+        public void DeleteGift(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var cmd = new SqlCommand("DELETE FROM GiftTable WHERE ID=@Id", connection);
+                cmd.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+            }
+
+
+        }
+
     }
 }
