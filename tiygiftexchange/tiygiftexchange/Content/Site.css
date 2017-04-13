@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -33,8 +33,9 @@ textarea {
 }
 
 .jumbotron {
-    margin-top: -40px;
-    height: 530px;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 600px;
     background-color: darkgreen;
     display: flex;
     justify-content: space-around;
@@ -54,6 +55,7 @@ textarea {
 .navbar-header {
     color: white;
     background-color: darkred;
+    margin-bottom: 0;
 }
 
 .navbar-inverse .navbar-brand {
@@ -63,6 +65,7 @@ textarea {
 
 
 .presentsWordsLeft {
+    margin-top: -150px;
     width: 275px;
     height: 200px;
 }
@@ -72,13 +75,42 @@ textarea {
 }
 
 .wordsButton {
-    display: flex;
+
 }
 
 .elephantPic {
-    display: flex;
 
 
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        margin-top: 00px;
+        height: 750px;
+    }
+    .presentsWordsLeft {
+        margin-top: 50px;
+    }
+    .elephantPic {
+        margin-top: 150px;
+    }
+}
+@media (max-width: 414px) {
+    .presentsWordsLeft {
+        margin-top: 100px;
+    }
+    .elephantPic {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 375px) {
+    .presentsWordsLeft {
+        margin-top: 120px;
+    }
+    .elephantPic {
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -89,6 +121,13 @@ textarea {
 
     }
     .presentsWordsLeft {
-        margin-top: 75px;
+        margin-top: 100px;
+    }
+    .elephantPic {
+        margin-top: 0px;
+    }
+    .wordsButton {
+        height: 40px;
+        margin-top: -50px;
     }
 }
