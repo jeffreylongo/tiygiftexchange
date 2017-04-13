@@ -33,12 +33,13 @@ textarea {
 }
 
 .jumbotron {
-    margin-top: 0;
-    height: 500px;
+    margin-top: -40px;
+    height: 530px;
     background-color: darkgreen;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .jumbotron h1 {
@@ -63,7 +64,7 @@ textarea {
 
 .presentsWordsLeft {
     width: 275px;
-    height: 300px;
+    height: 200px;
 }
 
 .h1Left {
@@ -78,4 +79,16 @@ textarea {
     display: flex;
 
 
+}
+
+@media (max-width: 320px) {
+    .jumbotron {
+        height: 660px;
+    }
+    .wordsButton {
+
+    }
+    .presentsWordsLeft {
+        margin-top: 75px;
+    }
 }
