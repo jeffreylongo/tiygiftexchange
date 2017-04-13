@@ -25,27 +25,57 @@ textarea {
 
 .Home-h1 {
     font-weight: bold;
-    color: purple;
+    color: darkgreen;
 }
 
 .Home-p {
-    color: purple;
+    color: red;
 }
 
 .jumbotron {
-    background-color: mediumpurple;
+    margin-top: 0;
+    height: 500px;
+    background-color: darkgreen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .jumbotron h1 {
-    color: lightgrey;
-    text-shadow: 2px 2px #000000;
+    color: white;
+
 }
 
 .jumbotron p {
-    color: lightgrey;
-    text-shadow: 1px 1px #000000;
+    color: white;   
 }
 
 .navbar-header {
-    text-shadow: 1px 1px #ffffff;
+    color: white;
+    background-color: darkred;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+
+}
+
+
+.presentsWordsLeft {
+    width: 275px;
+    height: 300px;
+}
+
+.h1Left {
+
+}
+
+.wordsButton {
+    display: flex;
+}
+
+.elephantPic {
+    display: flex;
+
+
 }

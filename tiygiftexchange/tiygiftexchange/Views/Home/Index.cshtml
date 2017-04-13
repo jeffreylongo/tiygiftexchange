@@ -3,16 +3,25 @@
 }
 
 <div class="jumbotron">
-    <h1>Who wants presents?</h1>
-    <p class="lead">Here is some text to fill in some space so people can read something before they click the button to get some presents!</p>
-    <h5>@Html.ActionLink("Gift List", "Index", "Gift", new { @class = "btn btn-default" })</h5>
+    <div class="presentsWordsLeft">
+        <h1>Who wants presents?</h1>
+        <p class="lead">Here is some text to fill in some space so people can read something before they click the button to get some presents!</p>
+    </div>
+    <div class="giftButton">
+        <h5>@Html.ActionLink("Gift List", "Index", "Gift", new { @class = "btn btn-default" })</h5>
+    </div>
+    <div class="elephantPic">
+        <img src="http://www.clker.com/cliparts/e/s/R/k/3/4/white-elephant-with-santa-hat-md.png" alt="Elephant Man" />
+    </div>
 </div>
+
+
 
 <div class="row">
     <div class="col-md-4">
         <h2 class="Home-p">Gift buying tips.</h2>
         <p>
-            Don't get people garbage...no one likes garbage. 
+            Don't get people garbage...no one likes garbage.
         </p>
         <p>@Html.ActionLink("Gift List", "Index", "Gift", new { @class = "btn btn-default" })</p>
     </div>
@@ -28,3 +37,4 @@
     </div>
 
 </div>
+<img class="img-responsive center-block" sytle="margin-top: 20px" src="https://static.gyft.com/wp-content/uploads/2015/12/White-Elephant-Blog-Header-1200x500.png?9c5846" alt="Christmas Time" />
